@@ -23,7 +23,6 @@ PORT=3000
 - todo.js
 - app.js
 - index.js
-<!-- - model.js -->
 
 ### Packages
 - bootstrap
