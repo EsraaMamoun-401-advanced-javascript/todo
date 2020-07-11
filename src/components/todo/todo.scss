@@ -1,120 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
 body, html {
     height: 100%;
     margin: 0;
     padding:0;
     width: 100%;
 }
-.todo-details {
-    display:flex;
-    flex-direction:column;
 
-    header {
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-        padding:.5em 1em;
-    }
-
-    .item {
-        flex:1;
-        padding: 1em;
-    }
-
+.justify-content-between {
+    justify-content: space-between;
+    text-align-last: center;
+    flex-direction: column-reverse;
+    mix-blend-mode: difference;
+    margin-bottom: 6%;
 }
 
-.todo {
-
-    display:flex;
-    flex-direction:row;
-    justify-content: flex-start;
-    margin: 2em;
-
-    form {
-
-        display:flex;
-        flex-direction:column;
-        margin-right: 2em;
-
-        label {
-            display: flex;
-            flex-direction:column;
-            margin-bottom: 1em;
-        }
-    }
-
-    ul {
-        list-style-type:none;
-        margin:0;
-        padding:0;
-
-        li {
-
-            align-items: center;
-            display:flex;
-            flex-direction:row;
-            font-size: .75em;
-            margin: .75em .5em;
-
-            &.complete-true {
-              span {
-                background: pink;
-                text-decoration:line-through;
-                &:hover {
-                   background: seagreen;
-                }
-              }
-            }
-
-            span {
-                background: #e0e0e0;
-                cursor:pointer;
-                &:hover {
-                    background: pink;
-                }
-            }
-             span, input {
-                 border: .5px solid #eee;
-                 display:inline-block;
-                 padding: .2em .25em;
-                 width: 300px;
-             }
-
-            button {
-                background: transparent;
-                border:none;
-                color:blue;
-                cursor:pointer;
-                padding:0;
-                margin: 0 .75em;
-            }
-
-        }
-    }
-
+.swish-justify-content-between {
+    background-color: white;
 }
-header{
-    h2{
-        text-align-last: center;
-        color: white;
+
+.signupF {
+    margin-left: 30%;
+    margin-right: 30%;
+    h3 {
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 8%;
     }
-    .navbar {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: .5rem 1rem;
-        background-color: #6868ca;
-        color: white;
-        padding: 10px;
-    }
-    .col {
-        flex-basis: 0;
-        flex-grow: 1;
-        min-width: 0;
-        max-width: 100%;
-        background-color: currentcolor;
-        padding: 10px;
-        margin-top: 20px;
-    }
+}
+
+button.signout {
+    float: right;
+    margin-right: 2%;
+    margin-top: 1%;
+}
+
+.bg-light {
+    background-color: #7fbaf5!important;
+    margin-bottom: 3%;
+}
+
+.todoHeader.container-fluid {
+    text-align-last: center;
+    margin-bottom: 4%;
+    color: white;
+    background: black;
+}
+
+.todoF {
+    width: 32%;
+    float: left;
+    margin-left: 5%;
+}
+
+.listD {
+    width: 35%;
+    float: left;
+    margin-left: 22%;
+}
+
+.form-label {
+    float: left;
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 13%;
+}
+
+.itemD {
+    margin-bottom: 14%;
+    box-shadow: 3px 3px 3px 3px gray;
+    border-radius: 2px;
+    padding: 5%;
+}
+
+p.status {
+    float: left;
+}
+
+.deleteB {
+    cursor: pointer;
+    margin-left: 55%;
+    font-weight: bold;
+}
+
+.deleteB:hover {
+    color: red;
+}
+
+span.assignee {
+    margin-left: 9%;
+    font-weight: bold;
+    color: #807878;
+}
+
+div.threeE {
+    margin-bottom: 5%;
+}
+
+span.switch {
+    float: left;
+}
+
+span.difficulty {
+    margin-left: 40%;
+    font-size: 11px;
 }

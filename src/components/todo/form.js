@@ -1,44 +1,84 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Form, Button, Row, Col, Container, Navbar } from 'react-bootstrap';
 
-function TodoForm(props) {
-  const [item, setItem] = useState({});
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-  const _handleInputChange = event => {
-    setItem({...item, [event.target.name]: event.target.value });
-  };
+import useForm from '../hooks/useForm';
 
-  const _handleSubmit = (event) => {
-    event.preventDefault();
-    event.target.reset();
-    props.pHandleSubmit(item);
-    const item2 = {};
-    setItem(item2);
-  };
 
-  return (
-    <>
-      <h3>Add Item</h3>
-      <form onSubmit={_handleSubmit}>
-        <label>
-          <span>To Do Item</span>
-          <input
-            name="text"
-            placeholder="Add To Do List Item"
-            onChange={_handleInputChange}
-          />
-        </label>
-        <label>
-          <span>Difficulty Rating</span>
-          <input defaultValue="1" type="range" min="1" max="5" name="difficulty" onChange={_handleInputChange} />
-        </label>
-        <label>
-          <span>Assigned To</span>
-          <input type="text" name="assignee" placeholder="Assigned To" onChange={_handleInputChange} />
-        </label>
-        <button>Add Item</button>
-      </form>
-    </>
-  );
+function ToDoForm(props) {
+    const [updateForm, submitForm, formData] = useForm(props.addTask);
+
+    console.log('in Form formData===', formData);
+
+    // const [status, setStatus] = React.useState(props.status || false);
+    // props.addTask({
+    // status: e.target.status.value,
+    //   })
+    return (
+        <>
+            <header><Navbar bg="light">
+                <Navbar.Brand>Home</Navbar.Brand>
+            </Navbar></header>
+            <Container className="todoHeader" fluid>
+                <Row>
+                    <Col><h2>To Do List Manager {}
+                    </h2></Col>
+                </Row>
+            </Container>
+            <Form className="todoF" onSubmit={submitForm}>
+                <Form.Group controlId='todo-description'>
+                    <Form.Label>Add To Do Item:</Form.Label>
+                    <Form.Control
+                        as='input'
+                        placeholder="Add To Do List Item"
+                        rows='3'
+                        onChange={(e) => {
+                            updateForm('text', e.target.value);
+                        }}
+                    />
+                </Form.Group>
+                <Form.Group controlId='todo-assignee'>
+                    <Form.Label>Assigned To:</Form.Label>
+                    <Form.Control
+                        type='text'
+                        placeholder="Assigned To"
+                        onChange={(e) => {
+                            updateForm('assignee', e.target.value);
+                        }}
+                    />
+                </Form.Group>
+                <Form.Group controlId='todo-status'>
+                    <Form.Label>Status:</Form.Label>
+                    <Form.Check
+                        onChange={(e) => {
+                            updateForm('complete', e.target.checked);
+                        }}
+                        type='switch'
+                        id='status-switch'
+                        label={formData.complete ? 'Complete' : 'Pending'}
+                    />
+                </Form.Group>
+                <Form.Group controlId='todo-difficulty'>
+                    <Form.Label><span>Difficulty: &nbsp;</span></Form.Label>
+                    <input
+                        type='range'
+                        defaultValue="0"
+                        min={0}
+                        max={5}
+                        step={1}
+                        onChange={(e) => {
+                            updateForm('difficulty', e.target.value);
+                        }}
+                    />
+                </Form.Group>
+
+                <Button variant='primary' type='submit'>
+                    Add Task
+        </Button>
+            </Form>
+        </>
+    );
 }
 
-export default TodoForm;
+export default ToDoForm;
