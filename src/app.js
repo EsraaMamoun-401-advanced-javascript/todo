@@ -36,6 +36,7 @@ import LoginContext from './auth/context.js';
 function App() {
   return (
     <LoginContext>
+      <hr />
       <Login />
       <Signup />
       <Auth capability="read">

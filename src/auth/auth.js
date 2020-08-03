@@ -10,9 +10,10 @@ class Auth extends React.Component {
         let okToRender = false;
 
         try {
+            console.log('this.context.user.capabilities===', this.context.user.capabilities);
             okToRender = this.context.loggedIn && (
                 this.props.capability ? 
-                    this.context.user.capabilities.includes(this.props.capability)
+                    this.context.user.capabilities.includes(this.props.capability) // role not capabilities
                     : true
             )
             console.log("okToRender: ",okToRender)

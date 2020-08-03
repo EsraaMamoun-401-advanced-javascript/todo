@@ -2,8 +2,9 @@ import React from 'react';
 import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken';
 
+// require('dotenv').config();
 
-const todoAPI = 'https://lab32-401.herokuapp.com';
+const todoAPI = 'https://lab32-401.herokuapp.com'; // https://todo-esraa.herokuapp.com (can not render the todo)
 
 export const LoginContext = React.createContext();
 
@@ -72,7 +73,7 @@ class LoginProvider extends React.Component {
 
         try {
             console.log({token});
-            let user = jwt.verify(token, process.env.REACT_APP_SECRET || 'supersecret');
+            let user = jwt.verify(token, process.env.REACT_APP_SECRET || 'supersecret');  //mysecrettokenkeyesraa
             console.log("user: ",user);
             this.setLoginState(true, token, user);
 
